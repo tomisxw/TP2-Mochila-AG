@@ -1,6 +1,5 @@
 from itertools import combinations
 
-# Datos del problema
 objetos = [
     {"id": 1, "vol": 150, "val": 20},
     {"id": 2, "vol": 325, "val": 40},
@@ -15,13 +14,10 @@ objetos = [
 ]
 
 capacidad_max = 4200
-
-# Variables para almacenar la mejor solución
 mejor_valor = 0
 mejor_combinacion = []
 combinaciones_evaluadas = 0
 
-# Búsqueda exhaustiva
 for r in range(1, len(objetos) + 1):
     for combo in combinations(objetos, r):
         combinaciones_evaluadas += 1
@@ -30,9 +26,8 @@ for r in range(1, len(objetos) + 1):
 
         if volumen_total <= capacidad_max and valor_total > mejor_valor:
             mejor_valor = valor_total
-            mejor_combinacion = combo  # Asignar directamente (sin acumular)
+            mejor_combinacion = combo 
 
-# Mostrar resultados
 print(f"Valor máximo obtenido: ${mejor_valor}")
 volumen_total_mejor = sum(o["vol"] for o in mejor_combinacion)
 print(f"Volumen total: {volumen_total_mejor} cm³")
@@ -40,3 +35,4 @@ print("Objetos elegidos (id, volumen, valor):")
 for o in mejor_combinacion:
     print(f"- id {o['id']}: vol={o['vol']} cm³, val=${o['val']}")
 print(f"Combinaciones evaluadas: {combinaciones_evaluadas}")
+
