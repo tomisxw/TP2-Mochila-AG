@@ -1,7 +1,5 @@
-# Punto 3: mochila con pesos (3 elementos) — exhaustivo vs. greedy
 from itertools import combinations
 
-# Datos del enunciado
 items = [
     {"id": 1, "peso": 1800, "valor": 72},
     {"id": 2, "peso": 600,  "valor": 36},
@@ -24,7 +22,6 @@ def knapsack_exhaustive(items, capacidad):
     return mejor_valor, mejor_peso, mejor_combo, evaluadas
 
 def knapsack_greedy(items, capacidad):
-    # Orden por mayor ratio valor/peso
     orden = sorted(
         [{"id": x["id"], "peso": x["peso"], "valor": x["valor"], "ratio": x["valor"]/x["peso"]}
          for x in items],
@@ -40,13 +37,10 @@ def knapsack_greedy(items, capacidad):
     return valor, peso, sel, orden
 
 if __name__ == "__main__":
-    # Exhaustivo (óptimo)
     val_opt, peso_opt, combo_opt, evals = knapsack_exhaustive(items, capacidad)
 
-    # Greedy (goloso)
     val_greedy, peso_greedy, sel_greedy, orden = knapsack_greedy(items, capacidad)
 
-    # Resultados
     print("EXHAUSTIVO")
     print(f"Valor máximo: ${val_opt} | Peso total: {peso_opt} g")
     print("Ítems:", [x["id"] for x in combo_opt])
@@ -58,3 +52,4 @@ if __name__ == "__main__":
     print("\nOrden por ratio valor/peso (desc):")
     for x in orden:
         print(f"id {x['id']}: ratio={x['ratio']:.5f} (valor={x['valor']}, peso={x['peso']})")
+
