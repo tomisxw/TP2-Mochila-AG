@@ -1,6 +1,3 @@
-# Algoritmo Greedy para el problema de la mochila 0/1
-
-# Datos del problema
 objetos = [
     {"id": 1, "vol": 150, "val": 20},
     {"id": 2, "vol": 325, "val": 40},
@@ -16,13 +13,10 @@ objetos = [
 
 capacidad_max = 4200
 
-# Calcular valor por unidad de volumen y ordenar de mayor a menor
 for o in objetos:
     o["ratio"] = o["val"] / o["vol"]
 
 objetos_ordenados = sorted(objetos, key=lambda x: x["ratio"], reverse=True)
-
-# Selección greedy
 capacidad_actual = 0
 valor_total = 0
 seleccionados = []
@@ -33,10 +27,10 @@ for o in objetos_ordenados:
         capacidad_actual += o["vol"]
         valor_total += o["val"]
 
-# Mostrar resultados
 print("===== Resultado algoritmo greedy =====")
 print(f"Valor total obtenido: ${valor_total}")
 print(f"Volumen total: {capacidad_actual} cm³")
 print("Objetos seleccionados (id, volumen, valor, ratio):")
 for o in seleccionados:
     print(f"- id {o['id']}: vol={o['vol']} cm³, val=${o['val']}, ratio={o['ratio']:.4f}")
+
