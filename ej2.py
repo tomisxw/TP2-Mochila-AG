@@ -27,10 +27,10 @@ for o in objetos_ordenados:
         capacidad_actual += o["vol"]
         valor_total += o["val"]
 
-print("===== Resultado algoritmo greedy =====")
 print(f"Valor total obtenido: ${valor_total}")
 print(f"Volumen total: {capacidad_actual} cm³")
 print("Objetos seleccionados (id, volumen, valor, ratio):")
 for o in seleccionados:
     print(f"- id {o['id']}: vol={o['vol']} cm³, val=${o['val']}, ratio={o['ratio']:.4f}")
+
 
